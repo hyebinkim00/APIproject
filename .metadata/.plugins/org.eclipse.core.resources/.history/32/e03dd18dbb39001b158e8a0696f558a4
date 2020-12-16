@@ -1,0 +1,16 @@
+package org.zerock.domain;
+
+import javax.validation.constraints.Size;
+
+import lombok.Data;
+
+@Data
+public class TestVO {
+    
+    private String userid;
+    @Size(min = 3 ,max=5,message = "유효성 검사")
+    private String passwd;
+    private Long usernum;
+    
+	
+}

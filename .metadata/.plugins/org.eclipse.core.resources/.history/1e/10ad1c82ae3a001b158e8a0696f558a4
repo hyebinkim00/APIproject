@@ -1,0 +1,39 @@
+package org.zerock.controller;
+
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+
+import com.google.gson.JsonObject;
+
+import lombok.extern.log4j.Log4j;
+@Log4j
+@ControllerAdvice
+public class ErrorController {
+
+@ExceptionHandler(Exception.class)
+
+public @ResponseBody String exception(Exception e) {         
+
+	JsonObject obj =new JsonObject();
+	
+	obj.addProperty("name", e.getClass().getSimpleName());
+	obj.addProperty("message", e.getMessage());
+	
+	if(e.getClass().getSimpleName()=="NullPointerException") {
+		obj.addProperty("result","널 값이 입력되었습니다.");
+	}
+	
+	
+	
+	/* obj.addProperty("result", e.getStackTrace().toString()); */
+   log.info(obj);
+  
+
+
+
+    return obj.toString();
+
+}
+}

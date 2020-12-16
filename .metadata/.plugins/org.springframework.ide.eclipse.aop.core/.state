@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="ee"/>
+<aop-project name="hb"/>
+<aop-project name="RestProtect"/>
+<aop-project name="protect"/>
+</aop-reference-model>

@@ -1,0 +1,92 @@
+package org.zerock.controller;
+
+
+import java.util.HashMap;
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
+
+import org.springframework.web.bind.annotation.GetMapping;
+
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import org.zerock.domain.TestVO;
+import org.zerock.mapper.TestMapper;
+
+import lombok.AllArgsConstructor;
+import lombok.extern.log4j.Log4j;
+
+@RestController
+@Log4j
+@RequestMapping("/login/*")
+@AllArgsConstructor
+public class TestController{
+	private TestMapper mapper;
+	
+@GetMapping(value="/list" ,produces = "application/json; charset=UTF-8")
+	public @ResponseBody String list(Model model) {
+	log.info("list");
+	model.addAttribute("list",mapper.getList());
+	log.info(model);
+	return model.toString();
+}
+
+@ResponseBody
+@RequestMapping(value="/read", method= RequestMethod.POST)
+public String read(@RequestBody HashMap<String, HashMap<String, String>> requestData){
+	log.info("read");
+	String a = "";
+    HashMap<String, String> TestVO = requestData.get("TestVO");
+    String id=TestVO.get("id");
+    log.info(TestVO);
+    log.info(id);
+    return TestVO.toString();
+	
+	
+}
+@GetMapping(value="/getSample")
+
+public @ResponseBody TestVO getSample() {
+	TestVO testvo= new TestVO();
+	testvo.setUserid("테스트7");
+	testvo.setPasswd("1234");
+	testvo.setUsernum((long) 7);
+	mapper.insert(testvo);
+	return testvo;
+}
+
+@ResponseBody
+@RequestMapping(value="/all", method=RequestMethod.GET)
+
+
+public ResponseEntity<List<TestVO>> list() {
+log.info("all ");
+	
+    ResponseEntity<List<TestVO>> entity = null;
+    try {
+        entity = new ResponseEntity<>(
+            mapper.getList(), HttpStatus.OK);
+        
+    } catch (Exception e) {
+        e.printStackTrace();
+        entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+    log.info(entity);
+    
+    return entity;
+}
+
+
+    
+
+
+
+
+}
