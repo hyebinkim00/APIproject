@@ -3,6 +3,10 @@ C:\stsworkspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\338404760.
 \hb\src\main\java
 C:\stsworkspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2879944213.index
 \Project\src\main\java
+C:\stsworkspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\384753275.index
+\AjaxProject\src\main\java
+C:\stsworkspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2882431437.index
+\AjaxProject\src\main\java
 C:\stsworkspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\182047938.index
 \protect\src\main\java
 C:\stsworkspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3246764762.index

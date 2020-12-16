@@ -2,6 +2,7 @@
 <aop-reference-model>
 <aop-project name="ee"/>
 <aop-project name="hb"/>
+<aop-project name="AjaxProject"/>
 <aop-project name="RestProtect"/>
 <aop-project name="protect"/>
 </aop-reference-model>
